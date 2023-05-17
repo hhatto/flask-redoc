@@ -1,5 +1,4 @@
 """flask_redoc Module."""
-import copy
 import json
 import os
 
@@ -128,7 +127,7 @@ class Redoc(object):
             if view_func.__doc__ is not None:
                 self.spec.path(view=view_func)
 
-
+        print("emit before first request")
         self.spec_file = strip_empties_from_dict(merge(self.spec_file, self.spec.to_dict()))
 
 
