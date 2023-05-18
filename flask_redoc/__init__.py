@@ -1,6 +1,7 @@
 """flask_redoc Module."""
 import json
 import os
+import log
 
 import yaml
 from apispec import APISpec
@@ -128,6 +129,8 @@ class Redoc(object):
                 self.spec.path(view=view_func)
 
         print("emit before first request")
+        l = log.getLogger("flask-redoc")
+        l.debug("emit before first request")
         self.spec_file = strip_empties_from_dict(merge(self.spec_file, self.spec.to_dict()))
 
 
